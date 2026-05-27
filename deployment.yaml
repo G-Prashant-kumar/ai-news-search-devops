@@ -30,7 +30,8 @@ spec:
         - name: frontend-container
 
           image: prashant11122/ai-news-frontend:latest
-
+          imagePullPolicy: Always
+          
           ports:
             - containerPort: 80
 

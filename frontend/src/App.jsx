@@ -40,7 +40,7 @@ export default function App() {
         <div className="min-h-screen bg-slate-950 p-10">
 
             <h1 className="text-6xl font-bold text-center text-white mb-4">
-                AI News Search
+                Web Scraper
             </h1>
 
             <p className="text-center text-gray-400 mb-12 text-lg">
