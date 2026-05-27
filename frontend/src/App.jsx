@@ -5,15 +5,11 @@ import SearchBar from './components/SearchBar'
 import NewsCard from './components/NewsCard'
 import Loader from './components/Loader'
 
-
 export default function App() {
 
     const [query, setQuery] = useState('')
-
     const [results, setResults] = useState([])
-
     const [loading, setLoading] = useState(false)
-
 
     const searchNews = async () => {
 
@@ -24,7 +20,7 @@ export default function App() {
             setLoading(true)
 
             const response = await axios.get(
-                `http://backend-service:8000/search?query=${query}`
+                `http://4.224.139.214:8000/search?query=${query}`
             )
 
             setResults(response.data.results)
@@ -39,33 +35,15 @@ export default function App() {
         }
     }
 
-
-
-
     return (
 
         <div className="min-h-screen bg-slate-950 p-10">
 
-            <h1
-                className="
-          text-6xl
-          font-bold
-          text-center
-          text-white
-          mb-4
-        "
-            >
+            <h1 className="text-6xl font-bold text-center text-white mb-4">
                 AI News Search
             </h1>
 
-            <p
-                className="
-          text-center
-          text-gray-400
-          mb-12
-          text-lg
-        "
-            >
+            <p className="text-center text-gray-400 mb-12 text-lg">
                 Search latest information from across the internet
             </p>
 
