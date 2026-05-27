@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+ddgs
+newspaper3k
+lxml
+lxml_html_clean
+beautifulsoup4
+requests
+transformers==4.41.2
+torch==2.3.1
+sentencepiece
+numpy<2
+python-multipart
