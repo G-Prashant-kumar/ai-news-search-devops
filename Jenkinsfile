@@ -51,6 +51,24 @@ pipeline {
             }
         }
 
+        stage('Deploy Backend') {
+
+            steps {
+
+                script {
+
+                    sh '''
+                    kubectl apply -f backend-deployment.yaml
+
+                    sleep 15
+
+                    kubectl get svc -n prashant-ns
+                    '''
+                }
+            }
+        }
+
+
     }
 
     post {

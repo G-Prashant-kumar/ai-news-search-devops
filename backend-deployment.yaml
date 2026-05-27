@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: ai-news-backend
+  namespace: prashant-ns
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: ai-news-backend
+
+  template:
+    metadata:
+      labels:
+        app: ai-news-backend
+
+    spec:
+      containers:
+        - name: backend-container
+
+          image: prashant11122/ai-news-backend:latest
+
+          ports:
+            - containerPort: 8000
+
+---
+
+apiVersion: v1
+kind: Service
+
+metadata:
+  name: backend-service
+  namespace: prashant-ns
+
+spec:
+  selector:
+    app: ai-news-backend
+
+  ports:
+    - protocol: TCP
+      port: 8000
+      targetPort: 8000
+
+  type: LoadBalancer
