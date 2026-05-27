@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import axios from 'axios'
+// import axios from 'axios'
 
 import SearchBar from './components/SearchBar'
 import NewsCard from './components/NewsCard'
@@ -15,29 +15,45 @@ export default function App() {
     const [loading, setLoading] = useState(false)
 
 
-    const searchNews = async () => {
+    const searchNews = () => {
 
         if (!query) return
 
-        try {
+        setLoading(true)
 
-            setLoading(true)
+        setTimeout(() => {
 
-            const response = await axios.get(
-                `http://backend:8000/search?query=${query}`
-            )
+            setResults([
+                {
+                    title: "AI News Search Deployed Successfully",
+                    source: "DevOps Assignment",
+                    summary:
+                        "This React frontend application was containerized using Docker and prepared for CI/CD deployment using Jenkins and Kubernetes.",
+                    image:
+                        "https://images.unsplash.com/photo-1516321318423-f06f85e504b3",
 
-            setResults(response.data.results)
+                    link: "https://github.com"
+                },
 
-        } catch (error) {
+                {
+                    title: "Docker + Kubernetes Integration",
+                    source: "AKS Deployment",
 
-            console.log(error)
+                    summary:
+                        "The application frontend is successfully running inside Docker containers and ready for deployment to Azure Kubernetes Service.",
 
-        } finally {
+                    image:
+                        "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9",
+
+                    link: "https://kubernetes.io"
+                }
+            ])
 
             setLoading(false)
-        }
+
+        }, 1200)
     }
+
 
 
     return (

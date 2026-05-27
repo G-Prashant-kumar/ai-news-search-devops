@@ -1,13 +1,9 @@
 fastapi
 uvicorn
-ddgs
-newspaper3k
+requests
+beautifulsoup4
 lxml
 lxml_html_clean
-beautifulsoup4
-requests
-transformers==4.41.2
-torch==2.3.1
-sentencepiece
-numpy<2
+newspaper3k
 python-multipart
+ddgs

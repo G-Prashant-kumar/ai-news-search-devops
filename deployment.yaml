@@ -1,0 +1,57 @@
+```yaml
+apiVersion: v1
+kind: Namespace
+
+metadata:
+  name: prashant-ns
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: ai-news-frontend
+  namespace: prashant-ns
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: ai-news-frontend
+
+  template:
+    metadata:
+      labels:
+        app: ai-news-frontend
+
+    spec:
+      containers:
+        - name: frontend-container
+
+          image: prashant11122/ai-news-frontend:latest
+
+          ports:
+            - containerPort: 80
+
+---
+
+apiVersion: v1
+kind: Service
+
+metadata:
+  name: frontend-service
+  namespace: prashant-ns
+
+spec:
+  selector:
+    app: ai-news-frontend
+
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+
+  type: LoadBalancer
+```
